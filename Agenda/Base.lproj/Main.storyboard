@@ -35,7 +35,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-hL-4nL" userLabel="imgUser">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-hL-4nL" userLabel="imgPhoto">
                                 <rect key="frame" x="16" y="99" width="343" height="203"/>
                                 <accessibility key="accessibilityConfiguration" label="Picture">
                                     <accessibilityTraits key="traits" none="YES" image="YES"/>
@@ -94,13 +94,20 @@
                                 <state key="normal" title="Guardar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="bntSavePressed:" destination="KGA-Zj-BZS" eventType="touchUpInside" id="3wM-53-XV4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="imgPhoto" destination="mtj-hL-4nL" id="qFm-Ol-uhn"/>
                         <outlet property="navNew" destination="a3a-rG-zK6" id="mM2-Tm-3he"/>
+                        <outlet property="txtName" destination="qzR-Oy-yAY" id="m4v-qd-tA0"/>
+                        <outlet property="txtSong" destination="tdP-3e-5sv" id="yUJ-4e-5MQ"/>
+                        <outlet property="txtStatus" destination="wo5-Fb-JH0" id="i5g-Uz-UOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLi-0N-UeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,12 +126,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-pc-XXG">
-                                <rect key="frame" x="112" y="402" width="150" height="150"/>
-                                <state key="normal" image="imageGalleryIcon.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6D-YC-Dtv">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <items>
@@ -144,11 +145,23 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js7-7L-nyp">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js7-7L-nyp" userLabel="btnCamera">
                                 <rect key="frame" x="112" y="157" width="150" height="150"/>
                                 <state key="normal" image="Photo-Video-Slr-camera-icon-150x150.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnCameraPressed:" destination="m5l-xD-TZa" eventType="touchUpInside" id="wng-4P-NNL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-pc-XXG" userLabel="btnReel">
+                                <rect key="frame" x="112" y="402" width="150" height="150"/>
+                                <state key="normal" image="imageGalleryIcon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnReelPressed:" destination="m5l-xD-TZa" eventType="touchUpInside" id="7Dx-y6-BE6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -257,18 +270,22 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbu-DR-WQr">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbu-DR-WQr" userLabel="bntShare">
                                 <rect key="frame" x="0.0" y="72" width="185" height="30"/>
                                 <state key="normal" title="Compartir">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnShare:" destination="4bP-GJ-vBi" eventType="touchUpInside" id="xU8-QW-DpI"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0L-HE-Xmi">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0L-HE-Xmi" userLabel="btnMore">
                                 <rect key="frame" x="190" y="72" width="185" height="30"/>
                                 <state key="normal" title="Ver más">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnMore:" destination="4bP-GJ-vBi" eventType="touchUpInside" id="LPV-29-Kqx"/>
                                     <segue destination="8KB-eA-5Ac" kind="show" id="Kpk-xW-KvO"/>
                                 </connections>
                             </button>
@@ -305,11 +322,18 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4bP-GJ-vBi" id="0e6-TK-xNw"/>
+                                    <outlet property="delegate" destination="4bP-GJ-vBi" id="MYd-Yh-mkt"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tblShow" destination="dRE-Qg-a8i" id="hqq-Z0-ULA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Um2-D3-Z2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,6 +394,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="imgPhoto" destination="sOZ-Fl-5qP" id="kcn-Qd-KM2"/>
+                        <outlet property="lblNombre" destination="5bs-RQ-egy" id="oGT-pR-rtQ"/>
+                        <outlet property="lblStatus" destination="dWR-7k-C6O" id="gUg-2N-ysK"/>
                         <outlet property="wvwVideo" destination="txQ-SD-sYV" id="UL4-yI-Axx"/>
                     </connections>
                 </viewController>
@@ -452,6 +479,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Np5-YG-HYH" id="1tp-ZJ-dWZ"/>
+                                    <outlet property="delegate" destination="Np5-YG-HYH" id="bQQ-xT-OTQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

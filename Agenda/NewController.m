@@ -15,4 +15,6 @@
     self.navNew.title = currentState==Insert?@"Alta Usuario":@"Editar Usuario";
 }
 
+- (IBAction)bntSavePressed:(id)sender {
+}
 @end

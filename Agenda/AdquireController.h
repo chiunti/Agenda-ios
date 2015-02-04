@@ -10,4 +10,8 @@
 
 @interface AdquireController : UIViewController
 
+// Actions
+- (IBAction)btnCameraPressed:(id)sender;
+- (IBAction)btnReelPressed:(id)sender;
+
 @end

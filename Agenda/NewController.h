@@ -12,4 +12,15 @@
 //Navigator
 @property (strong, nonatomic) IBOutlet UINavigationItem *navNew;
 
+//Images
+@property (strong, nonatomic) IBOutlet UIImageView *imgPhoto;
+
+// textEdit
+@property (strong, nonatomic) IBOutlet UITextField *txtName;
+@property (strong, nonatomic) IBOutlet UITextField *txtStatus;
+@property (strong, nonatomic) IBOutlet UITextField *txtSong;
+
+// Actions
+- (IBAction)bntSavePressed:(id)sender;
+
 @end

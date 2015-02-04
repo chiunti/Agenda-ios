@@ -10,4 +10,9 @@
 
 @implementation AdquireController
 
+- (IBAction)btnCameraPressed:(id)sender {
+}
+
+- (IBAction)btnReelPressed:(id)sender {
+}
 @end

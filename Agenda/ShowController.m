@@ -10,4 +10,9 @@
 
 @implementation ShowController
 
+- (IBAction)btnShare:(id)sender {
+}
+
+- (IBAction)btnMore:(id)sender {
+}
 @end

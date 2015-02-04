@@ -13,4 +13,11 @@
 // WebViews
 @property (strong, nonatomic) IBOutlet UIWebView *wvwVideo;
 
+//Images
+@property (strong, nonatomic) IBOutlet UIImageView *imgPhoto;
+
+//Labels
+@property (strong, nonatomic) IBOutlet UILabel *lblNombre;
+@property (strong, nonatomic) IBOutlet UILabel *lblStatus;
+
 @end

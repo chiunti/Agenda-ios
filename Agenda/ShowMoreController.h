@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ShowMoreController : UIViewController
+
+// WebViews
 @property (strong, nonatomic) IBOutlet UIWebView *wvwVideo;
 
 @end

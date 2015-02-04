@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface EditController : UIViewController
+
+// tableviews
+@property (strong, nonatomic) IBOutlet UITableView *tblEdit;
+
+//Buttons
 @property (strong, nonatomic) IBOutlet UIButton *btnEliminar;
 @property (strong, nonatomic) IBOutlet UIButton *btnEditar;
+
+//Navigators
 @property (strong, nonatomic) IBOutlet UINavigationItem *navEdit;
 
 @end

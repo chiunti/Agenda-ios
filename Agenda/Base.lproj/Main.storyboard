@@ -115,6 +115,9 @@
                                                 <state key="normal" title="Atrás">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="KGA-Zj-BZS" kind="custom" customClass="DismissSegue" id="B7m-8M-an7"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -415,6 +418,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="pqh-Bi-TpA"/>
-        <segue reference="GqB-Ns-fLH"/>
+        <segue reference="B7m-8M-an7"/>
     </inferredMetricsTieBreakers>
 </document>

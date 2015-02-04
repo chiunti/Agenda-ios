@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Chiunti. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface EditController : NSObject
+@interface EditController : UIViewController
 
 @end

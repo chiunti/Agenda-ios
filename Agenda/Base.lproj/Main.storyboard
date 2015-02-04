@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Controller-->
         <scene sceneID="vK2-24-T64">
             <objects>
-                <viewController id="KGA-Zj-BZS" sceneMemberID="viewController">
+                <viewController id="KGA-Zj-BZS" customClass="NewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eib-LF-nYH"/>
                         <viewControllerLayoutGuide type="bottom" id="pdj-1X-drX"/>
@@ -27,21 +27,33 @@
                                                 <state key="normal" title="Atrás">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="vXZ-lx-hvc" kind="custom" customClass="DismissSegue" id="k1R-uf-Xta"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-hL-4nL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-hL-4nL" userLabel="imgUser">
                                 <rect key="frame" x="16" y="99" width="343" height="203"/>
+                                <accessibility key="accessibilityConfiguration" label="Picture">
+                                    <accessibilityTraits key="traits" none="YES" image="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP3-4M-Gvc" userLabel="btnImage">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP3-4M-Gvc" userLabel="btnImage">
                                 <rect key="frame" x="16" y="99" width="343" height="203"/>
-                                <state key="normal" title="button">
+                                <state key="normal" title="Foto">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="m5l-xD-TZa" kind="presentation" id="5TX-1Q-6gW"/>
+                                    <segue destination="m5l-xD-TZa" kind="show" id="5TX-1Q-6gW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHw-Ae-af4">
@@ -92,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="238.5" y="-397.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Adquire Controller-->
         <scene sceneID="oaZ-55-skH">
             <objects>
-                <viewController id="m5l-xD-TZa" sceneMemberID="viewController">
+                <viewController id="m5l-xD-TZa" customClass="AdquireController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZWZ-ef-J43"/>
                         <viewControllerLayoutGuide type="bottom" id="mbh-aS-AQu"/>
@@ -104,39 +116,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uue-hQ-GGO">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-pc-XXG">
+                                <rect key="frame" x="112" y="402" width="150" height="150"/>
+                                <state key="normal" image="imageGalleryIcon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6D-YC-Dtv">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Seleccionar fuente" id="a35-il-lZz">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="6j0-aC-5Sb">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lk8-jF-5sn">
+                                    <navigationItem title="Seleccionar..." id="cXH-Hg-CPC">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="yKJ-AG-KQ1">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vod-Oy-eAx">
                                                 <rect key="frame" x="-23" y="-15" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Atrás">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="KGA-Zj-BZS" kind="custom" customClass="DismissSegue" id="B7m-8M-an7"/>
+                                                    <segue destination="KGA-Zj-BZS" kind="custom" customClass="DismissSegue" id="Mgj-kf-xya"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-pc-XXG">
-                                <rect key="frame" x="125" y="412" width="125" height="125"/>
-                                <state key="normal" title="Photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js7-7L-nyp">
-                                <rect key="frame" x="125" y="198" width="125" height="125"/>
-                                <state key="normal" title="Camera">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js7-7L-nyp">
+                                <rect key="frame" x="112" y="159" width="150" height="150"/>
+                                <state key="normal" image="Photo-Video-Slr-camera-icon-150x150.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Js7-7L-nyp" secondAttribute="centerY" constant="79.5" id="1J1-rS-In7"/>
+                            <constraint firstAttribute="centerX" secondItem="8hf-pc-XXG" secondAttribute="centerX" id="343-xQ-Qtb"/>
+                            <constraint firstAttribute="centerX" secondItem="Js7-7L-nyp" secondAttribute="centerX" id="URo-qi-1Tn"/>
+                            <constraint firstAttribute="centerX" secondItem="Js7-7L-nyp" secondAttribute="centerX" id="eBp-2Q-AT6"/>
+                            <constraint firstItem="8hf-pc-XXG" firstAttribute="centerX" secondItem="Js7-7L-nyp" secondAttribute="centerX" id="mIE-Me-VNm"/>
+                            <constraint firstAttribute="centerX" secondItem="8hf-pc-XXG" secondAttribute="centerX" id="u1D-Rh-c6R"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1J1-rS-In7"/>
+                                <exclude reference="eBp-2Q-AT6"/>
+                                <exclude reference="mIE-Me-VNm"/>
+                                <exclude reference="u1D-Rh-c6R"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -162,7 +190,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KGA-Zj-BZS" kind="show" id="Pm4-TN-yZc"/>
+                                    <segue destination="KGA-Zj-BZS" kind="showDetail" id="Pm4-TN-yZc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wka-xy-ra2">
@@ -207,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="-262.5" y="348.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Controller-->
         <scene sceneID="6WO-1v-7dy">
             <objects>
-                <viewController id="4bP-GJ-vBi" sceneMemberID="viewController">
+                <viewController id="4bP-GJ-vBi" customClass="ShowController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gAV-pn-D7d"/>
                         <viewControllerLayoutGuide type="bottom" id="31H-8F-Vkv"/>
@@ -230,6 +258,9 @@
                                                 <state key="normal" title="Atrás">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="vXZ-lx-hvc" kind="custom" customClass="DismissSegue" id="zcl-l5-erf"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -283,10 +314,10 @@
             </objects>
             <point key="canvasLocation" x="-262.5" y="1202.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Show More Controller-->
         <scene sceneID="MS8-lL-MnH">
             <objects>
-                <viewController id="8KB-eA-5Ac" sceneMemberID="viewController">
+                <viewController id="8KB-eA-5Ac" customClass="ShowMoreController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="44l-Ip-Rev"/>
                         <viewControllerLayoutGuide type="bottom" id="9MU-CZ-mY8"/>
@@ -306,12 +337,15 @@
                                                 <state key="normal" title="Atrás">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="4bP-GJ-vBi" kind="custom" customClass="DismissSegue" id="9d5-eu-0ed"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-SD-sYV">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-SD-sYV" userLabel="wvwVideo">
                                 <rect key="frame" x="16" y="96" width="343" height="214"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
@@ -334,15 +368,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="wvwVideo" destination="txQ-SD-sYV" id="UL4-yI-Axx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOZ-Ht-tyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="718.5" y="1092.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Controller-->
         <scene sceneID="gtt-TG-gLv">
             <objects>
-                <viewController id="Np5-YG-HYH" sceneMemberID="viewController">
+                <viewController id="Np5-YG-HYH" customClass="EditController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ws1-hb-XNw"/>
                         <viewControllerLayoutGuide type="bottom" id="1aT-yV-XHo"/>
@@ -362,12 +399,15 @@
                                                 <state key="normal" title="Atrás">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="vXZ-lx-hvc" kind="custom" customClass="DismissSegue" id="smm-Hw-GVj"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq4-Dq-huI">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq4-Dq-huI" userLabel="btnEliminar">
                                 <rect key="frame" x="0.0" y="72" width="375" height="30"/>
                                 <state key="normal" title="Eliminar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -377,13 +417,13 @@
                                 <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" editingAccessoryType="detailDisclosureButton" rowHeight="71" id="NHd-Mx-ss8" customClass="CustomizedTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="EditCell" rowHeight="71" id="NHd-Mx-ss8" customClass="CustomizedTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NHd-Mx-ss8" id="NUQ-De-951">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hdW-bh-zb8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hdW-bh-zb8">
                                                     <rect key="frame" x="8" y="8" width="78" height="56"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estatus" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cII-aq-X0f">
@@ -403,21 +443,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R08-iA-xMG" userLabel="btnEditar">
+                                <rect key="frame" x="0.0" y="72" width="375" height="30"/>
+                                <state key="normal" title="Editar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="KGA-Zj-BZS" kind="presentation" id="y5Z-5l-Gir"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <segue destination="KGA-Zj-BZS" kind="showDetail" id="GqB-Ns-fLH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgs-U5-IOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="446.5" y="345.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Photo-Video-Slr-camera-icon-150x150.png" width="150" height="150"/>
+        <image name="imageGalleryIcon.png" width="150" height="150"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pqh-Bi-TpA"/>
-        <segue reference="B7m-8M-an7"/>
+        <segue reference="y5Z-5l-Gir"/>
+        <segue reference="c2o-Uh-GI7"/>
+        <segue reference="smm-Hw-GVj"/>
+        <segue reference="9d5-eu-0ed"/>
     </inferredMetricsTieBreakers>
 </document>

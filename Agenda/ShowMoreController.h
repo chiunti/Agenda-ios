@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Chiunti. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface ShowMoreController : NSObject
+@interface ShowMoreController : UIViewController
+@property (strong, nonatomic) IBOutlet UIWebView *wvwVideo;
 
 @end

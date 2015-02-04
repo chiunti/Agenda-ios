@@ -10,4 +10,9 @@
 
 @implementation ShowMoreController
 
+-(void)viewDidLoad{
+    NSURL *url = [NSURL URLWithString:@"https://www.youtube.com/embed/1MwjX4dG72s"];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.wvwVideo loadRequest:requestObj];
+}
 @end

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Chiunti. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NewController : NSObject
+@interface NewController : UIViewController
 
 @end

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EditController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *btnEliminar;
+@property (strong, nonatomic) IBOutlet UIButton *btnEditar;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navEdit;
 
 @end

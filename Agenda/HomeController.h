@@ -10,6 +10,10 @@
 
 @interface HomeController : UIViewController
 
+- (IBAction)btnAdd:(id)sender;
+- (IBAction)btnDelete:(id)sender;
+- (IBAction)btnEdit:(id)sender;
+- (IBAction)btnShow:(id)sender;
 
 @end
 

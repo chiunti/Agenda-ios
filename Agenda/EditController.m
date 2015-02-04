@@ -7,7 +7,15 @@
 //
 
 #import "EditController.h"
-
+#import "Defaults.h"
 @implementation EditController
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    self.btnEliminar.hidden = (currentState != Delete);
+    self.btnEditar.hidden   = (currentState != Edit);
+    self.navEdit.title = currentState==Delete? @"Eliminar contacto":@"Editar contacto";
+}
 
 @end

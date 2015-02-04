@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C4E4A6B1A819082004313DA /* CustomizedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E4A6A1A819082004313DA /* CustomizedTableViewCell.m */; };
 		3C4E4A6F1A819D34004313DA /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E4A6E1A819D34004313DA /* DismissSegue.m */; };
+		3C4E4A741A81FA0E004313DA /* Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E4A731A81FA0E004313DA /* Defaults.m */; };
 		3CD66E781A7F42EA00D3E72E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD66E771A7F42EA00D3E72E /* main.m */; };
 		3CD66E7B1A7F42EA00D3E72E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD66E7A1A7F42EA00D3E72E /* AppDelegate.m */; };
 		3CD66E7E1A7F42EA00D3E72E /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD66E7D1A7F42EA00D3E72E /* HomeController.m */; };
@@ -40,6 +41,8 @@
 		3C4E4A6A1A819082004313DA /* CustomizedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomizedTableViewCell.m; path = Agenda/CustomizedTableViewCell.m; sourceTree = "<group>"; };
 		3C4E4A6D1A819D34004313DA /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
 		3C4E4A6E1A819D34004313DA /* DismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissSegue.m; sourceTree = "<group>"; };
+		3C4E4A721A81FA0E004313DA /* Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Defaults.h; path = ../Defaults.h; sourceTree = "<group>"; };
+		3C4E4A731A81FA0E004313DA /* Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Defaults.m; path = ../Defaults.m; sourceTree = "<group>"; };
 		3CD66E721A7F42EA00D3E72E /* Agenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD66E761A7F42EA00D3E72E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CD66E771A7F42EA00D3E72E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 		3CD66E741A7F42EA00D3E72E /* Agenda */ = {
 			isa = PBXGroup;
 			children = (
+				3C4E4A721A81FA0E004313DA /* Defaults.h */,
+				3C4E4A731A81FA0E004313DA /* Defaults.m */,
 				3CD66E791A7F42EA00D3E72E /* AppDelegate.h */,
 				3CD66E7A1A7F42EA00D3E72E /* AppDelegate.m */,
 				3CD66E7C1A7F42EA00D3E72E /* HomeController.h */,
@@ -279,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C4E4A6F1A819D34004313DA /* DismissSegue.m in Sources */,
+				3C4E4A741A81FA0E004313DA /* Defaults.m in Sources */,
 				84C146911A81B13700CC4EE9 /* ShowMoreController.m in Sources */,
 				84C146881A81B0C700CC4EE9 /* AdquireController.m in Sources */,
 				3CD66E7E1A7F42EA00D3E72E /* HomeController.m in Sources */,

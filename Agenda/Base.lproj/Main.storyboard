@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -99,6 +99,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="navNew" destination="a3a-rG-zK6" id="mM2-Tm-3he"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLi-0N-UeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-pc-XXG">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-pc-XXG">
                                 <rect key="frame" x="112" y="402" width="150" height="150"/>
                                 <state key="normal" image="imageGalleryIcon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,30 +144,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js7-7L-nyp">
-                                <rect key="frame" x="112" y="159" width="150" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js7-7L-nyp">
+                                <rect key="frame" x="112" y="157" width="150" height="150"/>
                                 <state key="normal" image="Photo-Video-Slr-camera-icon-150x150.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Js7-7L-nyp" secondAttribute="centerY" constant="79.5" id="1J1-rS-In7"/>
-                            <constraint firstAttribute="centerX" secondItem="8hf-pc-XXG" secondAttribute="centerX" id="343-xQ-Qtb"/>
-                            <constraint firstAttribute="centerX" secondItem="Js7-7L-nyp" secondAttribute="centerX" id="URo-qi-1Tn"/>
-                            <constraint firstAttribute="centerX" secondItem="Js7-7L-nyp" secondAttribute="centerX" id="eBp-2Q-AT6"/>
-                            <constraint firstItem="8hf-pc-XXG" firstAttribute="centerX" secondItem="Js7-7L-nyp" secondAttribute="centerX" id="mIE-Me-VNm"/>
-                            <constraint firstAttribute="centerX" secondItem="8hf-pc-XXG" secondAttribute="centerX" id="u1D-Rh-c6R"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="1J1-rS-In7"/>
-                                <exclude reference="eBp-2Q-AT6"/>
-                                <exclude reference="mIE-Me-VNm"/>
-                                <exclude reference="u1D-Rh-c6R"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -184,12 +171,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRC-Nl-Svc">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Agenda" id="mgs-A3-IRB"/>
+                                </items>
+                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gx-gh-V0d">
                                 <rect key="frame" x="164" y="183" width="46" height="30"/>
                                 <state key="normal" title="Alta">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnAdd:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6Ib-uI-7Qa"/>
                                     <segue destination="KGA-Zj-BZS" kind="showDetail" id="Pm4-TN-yZc"/>
                                 </connections>
                             </button>
@@ -199,7 +193,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Np5-YG-HYH" kind="show" id="c2o-Uh-GI7"/>
+                                    <action selector="btnDelete:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YkW-v1-kQl"/>
+                                    <segue destination="Np5-YG-HYH" kind="show" id="ZHd-Me-kpN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9K-wz-Awe">
@@ -208,6 +203,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnEdit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qzW-RQ-Vgw"/>
                                     <segue destination="Np5-YG-HYH" kind="show" id="pqh-Bi-TpA"/>
                                 </connections>
                             </button>
@@ -217,15 +213,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnShow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YoA-Bl-XW8"/>
                                     <segue destination="4bP-GJ-vBi" kind="show" id="Cg1-rU-MFv"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRC-Nl-Svc">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Agenda" id="mgs-A3-IRB"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -400,7 +391,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="vXZ-lx-hvc" kind="custom" customClass="DismissSegue" id="smm-Hw-GVj"/>
+                                                    <segue destination="vXZ-lx-hvc" kind="custom" customClass="DismissSegue" id="myT-PD-nIW"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -412,6 +403,15 @@
                                 <state key="normal" title="Eliminar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R08-iA-xMG" userLabel="btnEditar">
+                                <rect key="frame" x="0.0" y="72" width="375" height="30"/>
+                                <state key="normal" title="Editar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="KGA-Zj-BZS" kind="presentation" id="y5Z-5l-Gir"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sb4-fP-O59">
                                 <rect key="frame" x="0.0" y="110" width="375" height="557"/>
@@ -443,19 +443,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R08-iA-xMG" userLabel="btnEditar">
-                                <rect key="frame" x="0.0" y="72" width="375" height="30"/>
-                                <state key="normal" title="Editar">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="KGA-Zj-BZS" kind="presentation" id="y5Z-5l-Gir"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnEditar" destination="R08-iA-xMG" id="UfS-6X-kLb"/>
+                        <outlet property="btnEliminar" destination="Eq4-Dq-huI" id="MVn-Ov-uNe"/>
+                        <outlet property="navEdit" destination="feS-9n-THx" id="6A1-QJ-xg6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgs-U5-IOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -467,9 +463,9 @@
         <image name="imageGalleryIcon.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Cg1-rU-MFv"/>
+        <segue reference="k1R-uf-Xta"/>
         <segue reference="y5Z-5l-Gir"/>
-        <segue reference="c2o-Uh-GI7"/>
-        <segue reference="smm-Hw-GVj"/>
-        <segue reference="9d5-eu-0ed"/>
+        <segue reference="ZHd-Me-kpN"/>
     </inferredMetricsTieBreakers>
 </document>

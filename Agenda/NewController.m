@@ -7,7 +7,12 @@
 //
 
 #import "NewController.h"
+#import "Defaults.h"
 
 @implementation NewController
+
+-(void)viewDidLoad{
+    self.navNew.title = currentState==Insert?@"Alta Usuario":@"Editar Usuario";
+}
 
 @end

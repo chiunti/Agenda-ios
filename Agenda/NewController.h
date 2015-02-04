@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NewController : UIViewController
+@property (strong, nonatomic) IBOutlet UINavigationItem *navNew;
 
 @end

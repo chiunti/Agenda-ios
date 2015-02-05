@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditController : UIViewController
+@interface EditController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
 
 // tableviews
 @property (strong, nonatomic) IBOutlet UITableView *tblEdit;
@@ -19,5 +20,8 @@
 
 //Navigators
 @property (strong, nonatomic) IBOutlet UINavigationItem *navEdit;
+
+//Actions
+- (IBAction)btnEliminarPressed:(id)sender;
 
 @end

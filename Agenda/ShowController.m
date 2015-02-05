@@ -23,6 +23,8 @@ NSMutableArray *maUsers;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initController];
+    //register for keyboard notifications
+
 }
 
 - (void)didReceiveMemoryWarning {

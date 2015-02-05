@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewController : UIViewController
+@interface NewController : UIViewController<UITextFieldDelegate>
 //Navigator
 @property (strong, nonatomic) IBOutlet UINavigationItem *navNew;
+//ScrollView
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //Images
 @property (strong, nonatomic) IBOutlet UIImageView *imgPhoto;
@@ -23,5 +25,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnImage;
 // Actions
 - (IBAction)bntSavePressed:(id)sender;
+- (IBAction)textFieldDidBeginEditing:(UITextField *)sender;
 
 @end

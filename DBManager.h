@@ -15,5 +15,9 @@
 }
 +(DBManager*)getSharedInstance;
 -(BOOL)createDB;
--(NSMutableArray*) executeQueryWithString:(NSString*)querySQL;
+//-(NSMutableArray*) executeQueryWithString:(NSString*)querySQL;
+-(BOOL) executeQueryWithString:(NSString*)querySQL;
+-(BOOL) executeQueryWithString:(NSString*)querySQL intoArray:(NSMutableArray *)resultArray;
+-(BOOL) executeQueryWithString:(NSString*)querySQL intoArray:(NSMutableArray *)resultArray andParams:(NSMutableArray *)paramsArray;
+
 @end

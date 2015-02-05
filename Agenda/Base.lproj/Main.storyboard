@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -103,6 +103,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="btnImage" destination="XP3-4M-Gvc" id="FFd-p9-fS0"/>
                         <outlet property="imgPhoto" destination="mtj-hL-4nL" id="qFm-Ol-uhn"/>
                         <outlet property="navNew" destination="a3a-rG-zK6" id="mM2-Tm-3he"/>
                         <outlet property="txtName" destination="qzR-Oy-yAY" id="m4v-qd-tA0"/>
@@ -276,7 +277,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnShare:" destination="4bP-GJ-vBi" eventType="touchUpInside" id="xU8-QW-DpI"/>
+                                    <action selector="btnSharePressed:" destination="4bP-GJ-vBi" eventType="touchUpInside" id="VK1-Re-YgC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0L-HE-Xmi" userLabel="btnMore">
@@ -285,7 +286,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnMore:" destination="4bP-GJ-vBi" eventType="touchUpInside" id="LPV-29-Kqx"/>
+                                    <action selector="btnMorePressed:" destination="4bP-GJ-vBi" eventType="touchUpInside" id="R2g-rh-ggR"/>
                                     <segue destination="8KB-eA-5Ac" kind="show" id="Kpk-xW-KvO"/>
                                 </connections>
                             </button>
@@ -297,22 +298,22 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellShow" rowHeight="93" id="Ufv-sn-ngB" customClass="CustomizedTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellShow" rowHeight="100" id="Ufv-sn-ngB" customClass="CustomizedTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ufv-sn-ngB" id="OKt-PY-RJn">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6o-92-rgm">
-                                                    <rect key="frame" x="8" y="9" width="95" height="77"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6o-92-rgm" userLabel="imgPhoto">
+                                                    <rect key="frame" x="8" y="9" width="100" height="83"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aD-RS-HJi">
-                                                    <rect key="frame" x="117" y="10" width="250" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aD-RS-HJi" userLabel="lblName">
+                                                    <rect key="frame" x="116" y="10" width="250" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVK-an-bVl">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVK-an-bVl" userLabel="lblStatus">
                                                     <rect key="frame" x="135" y="66" width="232" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -320,6 +321,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgPhoto" destination="s6o-92-rgm" id="tjl-vx-h6i"/>
+                                            <outlet property="lblName" destination="7aD-RS-HJi" id="YyM-qy-jTX"/>
+                                            <outlet property="lblStatus" destination="sVK-an-bVl" id="o03-sO-7d3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -332,6 +338,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="btnMore" destination="Y0L-HE-Xmi" id="ZLp-at-Vbc"/>
+                        <outlet property="btnShare" destination="Lbu-DR-WQr" id="hbn-Ab-YTQ"/>
                         <outlet property="tblShow" destination="dRE-Qg-a8i" id="hqq-Z0-ULA"/>
                     </connections>
                 </viewController>
@@ -505,9 +513,9 @@
         <image name="imageGalleryIcon.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9d5-eu-0ed"/>
         <segue reference="y5Z-5l-Gir"/>
         <segue reference="ZHd-Me-kpN"/>
-        <segue reference="myT-PD-nIW"/>
+        <segue reference="zcl-l5-erf"/>
+        <segue reference="9d5-eu-0ed"/>
     </inferredMetricsTieBreakers>
 </document>

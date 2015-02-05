@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowController : UIViewController
+@interface ShowController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 // tableViews
 @property (strong, nonatomic) IBOutlet UITableView *tblShow;
-
+// Buttons
+@property (strong, nonatomic) IBOutlet UIButton *btnShare;
+@property (strong, nonatomic) IBOutlet UIButton *btnMore;
 // Actions
-- (IBAction)btnShare:(id)sender;
-- (IBAction)btnMore:(id)sender;
+- (IBAction)btnSharePressed:(id)sender;
+- (IBAction)btnMorePressed:(id)sender;
+
 
 @end

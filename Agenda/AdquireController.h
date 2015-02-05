@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdquireController : UIViewController
+@interface AdquireController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 // Actions
 - (IBAction)btnCameraPressed:(id)sender;

@@ -19,7 +19,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtName;
 @property (strong, nonatomic) IBOutlet UITextField *txtStatus;
 @property (strong, nonatomic) IBOutlet UITextField *txtSong;
-
+// buttons
+@property (strong, nonatomic) IBOutlet UIButton *btnImage;
 // Actions
 - (IBAction)bntSavePressed:(id)sender;
 

@@ -17,7 +17,6 @@
 -(BOOL)createDB;
 //-(NSMutableArray*) executeQueryWithString:(NSString*)querySQL;
 -(BOOL) executeQueryWithString:(NSString*)querySQL;
--(BOOL) executeQueryWithString:(NSString*)querySQL intoArray:(NSMutableArray *)resultArray;
--(BOOL) executeQueryWithString:(NSString*)querySQL intoArray:(NSMutableArray *)resultArray andParams:(NSMutableArray *)paramsArray;
-
+-(BOOL) executeQueryWithString:(NSString*)querySQL andParams:(NSMutableArray *)paramsArray;
+-(NSMutableArray*)getResultArray;
 @end

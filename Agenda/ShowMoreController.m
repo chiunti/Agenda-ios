@@ -7,12 +7,17 @@
 //
 
 #import "ShowMoreController.h"
+#import "Defaults.h"
 
 @implementation ShowMoreController
 
 -(void)viewDidLoad{
-    NSURL *url = [NSURL URLWithString:@"https://www.youtube.com/embed/1MwjX4dG72s"];
+
+    NSURL *url = [NSURL URLWithString:currentRecord[RECORD_SONG]];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.wvwVideo loadRequest:requestObj];
+    self.lblNombre.text = currentRecord[RECORD_NAME];
+    self.lblStatus.text = currentRecord[RECORD_STATUS];
+    self.imgPhoto.image = currentRecord[RECORD_IMAGE];
 }
 @end

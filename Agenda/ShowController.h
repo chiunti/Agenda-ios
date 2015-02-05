@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
+#import <Twitter/Twitter.h>
 
 @interface ShowController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 // tableViews

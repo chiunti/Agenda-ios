@@ -13,6 +13,7 @@ static const char  *CreateTable  = "create table if not exists users (id integer
 static DBManager *sharedInstance = nil;
 static sqlite3         *database = nil;
 static sqlite3_stmt   *statement = nil;
+static NSMutableArray *resultArray;
 
 
 @implementation DBManager
@@ -109,31 +110,26 @@ static sqlite3_stmt   *statement = nil;
 
 -(BOOL) executeQueryWithString:(NSString*)querySQL;
 {
-    return [self executeQueryWithString:querySQL intoArray:nil];
+    return [self executeQueryWithString:querySQL andParams:nil];
 }
 
--(BOOL) executeQueryWithString:(NSString*)querySQL intoArray:(NSMutableArray *)resultArray;
-{
-    return [self executeQueryWithString:querySQL intoArray:resultArray andParams:nil];
-    
-}
 
--(BOOL) executeQueryWithString:(NSString*)querySQL intoArray:(NSMutableArray *)resultArray andParams:(NSMutableArray *)paramsArray;
+-(BOOL) executeQueryWithString:(NSString*)querySQL andParams:(NSMutableArray *)paramsArray;
 {
+    resultArray = [[NSMutableArray alloc]init];
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
-            NSMutableArray *resultArray = [[NSMutableArray alloc]init];
             int intColumnCount = sqlite3_column_count(statement);
             int intParamNumber = 0;
             for (id object in paramsArray) {
                 if ([object isKindOfClass:[NSString class]]) {
                     sqlite3_bind_text(statement, ++intParamNumber, [object UTF8String], -1, SQLITE_TRANSIENT);
                 } else if ([object isKindOfClass:[NSNumber class]]) {
-                    sqlite3_bind_text(statement, ++intParamNumber, [object UTF8String], -1, SQLITE_TRANSIENT);
+                    sqlite3_bind_int(statement, ++intParamNumber,[object integerValue] );
                 } else if ([object isKindOfClass:[NSData class]]) {
                     sqlite3_bind_blob(statement, ++intParamNumber, [object bytes], (int)[object length], SQLITE_TRANSIENT);
                 } else if (object == nil) {
@@ -189,6 +185,9 @@ static sqlite3_stmt   *statement = nil;
     }
     return false;
     
+}
+-(NSMutableArray*)getResultArray{
+    return resultArray;
 }
 
 

@@ -43,8 +43,7 @@
     
     if (currentState == Insert) {
         [[DBManager getSharedInstance]
-         executeQueryWithString:@"insert into users (name, status, song, photo) values (?,?,?,?)" intoArray:nil
-         andParams:[[NSMutableArray alloc]
+         executeQueryWithString:@"insert into users (name, status, song, photo) values (?,?,?,?)"          andParams:[[NSMutableArray alloc]
                     initWithObjects:self.txtName.text,
                     self.txtStatus.text,
                     self.txtSong.text,
@@ -52,7 +51,7 @@
                     nil]];
     } else {
         [[DBManager getSharedInstance]
-         executeQueryWithString:@"update users set name=?, status=?, song=?, photo=? where id=?" intoArray:nil
+         executeQueryWithString:@"update users set name=?, status=?, song=?, photo=? where id=?"
          andParams:[[NSMutableArray alloc]
                     initWithObjects:self.txtName.text,
                     self.txtStatus.text,
@@ -61,10 +60,11 @@
                     currentRecord[RECORD_ID],
                     nil]];
         [[DBManager getSharedInstance]
-         executeQueryWithString:@"select id, photo, name, status, song from users where id=?" intoArray:currentRecord
+         executeQueryWithString:@"select id, photo, name, status, song from users where id=?"
          andParams:[[NSMutableArray alloc]
                     initWithObjects:currentRecord[RECORD_ID],
                     nil]];
+        currentRecord = [[DBManager getSharedInstance]getResultArray][0];
     }
     
 

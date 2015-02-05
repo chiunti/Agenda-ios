@@ -10,6 +10,9 @@
 #import "DBManager.h"
 #import "CustomizedTableViewCell.h"
 #import "Defaults.h"
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
+#import <Twitter/Twitter.h>
 
 
 NSMutableArray *maUsers;
@@ -30,10 +33,26 @@ NSMutableArray *maUsers;
 
 - (void)initController{
     maUsers = [[NSMutableArray alloc] init];
-[[DBManager getSharedInstance] executeQueryWithString:@"select id, photo, name, status, song from users" intoArray:maUsers];
+    [[DBManager getSharedInstance] executeQueryWithString:@"select id, photo, name, status, song from users"];
+    maUsers = [[DBManager getSharedInstance]getResultArray];
 }
 
 - (IBAction)btnSharePressed:(id)sender {
+    //NSMutableArray *dato = datos[indice];
+    
+    NSString                    *strMsg;
+    NSArray                     *activityItems;
+    UIActivityViewController    *actVC;
+    
+    strMsg = [NSString stringWithFormat: @"El contacto %@, su estado es %@", currentRecord[RECORD_NAME], currentRecord[RECORD_STATUS]];
+    
+    activityItems = @[currentRecord[RECORD_IMAGE], strMsg];
+    
+    //Init activity view controller
+    actVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    actVC.excludedActivityTypes = [NSArray arrayWithObjects:UIActivityTypePrint, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop, nil];
+    
+    [self presentViewController:actVC animated:YES completion:nil];
 }
 
 - (IBAction)btnMorePressed:(id)sender {
@@ -77,8 +96,25 @@ NSMutableArray *maUsers;
 //-------------------------------------------------------------------------------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.btnMore.enabled = (indexPath.row>0);
-    self.btnShare.enabled = (indexPath.row>0);
+    self.btnMore.enabled = true;
+    self.btnShare.enabled = true;
+    
+    [[DBManager getSharedInstance]
+     executeQueryWithString:@"select id, photo, name, status, song from users where id=?"
+     andParams:[[NSMutableArray alloc]
+//                initWithObjects:[[NSNumber alloc] initWithInteger: ] ,
+                //                nil]];
+                initWithObjects:maUsers[indexPath.row][RECORD_ID], nil]];
+    currentRecord = [[DBManager getSharedInstance]getResultArray][0];
+    currentRecord[RECORD_IMAGE] = [UIImage imageWithData:currentRecord[RECORD_IMAGE]];
+    
+    
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.btnMore.enabled = false;
+    self.btnShare.enabled = false;
     
 }
 

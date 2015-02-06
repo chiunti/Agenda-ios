@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C4BF24F1A8478C100F0CFED /* SlideshareLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C4BF24E1A8478C100F0CFED /* SlideshareLogo.png */; };
 		3C4E4A6B1A819082004313DA /* CustomizedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E4A6A1A819082004313DA /* CustomizedTableViewCell.m */; };
 		3C4E4A6F1A819D34004313DA /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E4A6E1A819D34004313DA /* DismissSegue.m */; };
 		3C4E4A741A81FA0E004313DA /* Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E4A731A81FA0E004313DA /* Defaults.m */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C4BF24E1A8478C100F0CFED /* SlideshareLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SlideshareLogo.png; sourceTree = "<group>"; };
 		3C4E4A691A819082004313DA /* CustomizedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomizedTableViewCell.h; path = Agenda/CustomizedTableViewCell.h; sourceTree = "<group>"; };
 		3C4E4A6A1A819082004313DA /* CustomizedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomizedTableViewCell.m; path = Agenda/CustomizedTableViewCell.m; sourceTree = "<group>"; };
 		3C4E4A6D1A819D34004313DA /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		84C146921A81BD6800CC4EE9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3C4BF24E1A8478C100F0CFED /* SlideshareLogo.png */,
 				84C146931A81BD6800CC4EE9 /* imageGalleryIcon.png */,
 				84C146941A81BD6800CC4EE9 /* Photo-Video-Slr-camera-icon-150x150.png */,
 			);
@@ -284,6 +287,7 @@
 			files = (
 				3CD66E811A7F42EA00D3E72E /* Main.storyboard in Resources */,
 				3CD66E861A7F42EA00D3E72E /* LaunchScreen.xib in Resources */,
+				3C4BF24F1A8478C100F0CFED /* SlideshareLogo.png in Resources */,
 				84C146961A81BD6800CC4EE9 /* Photo-Video-Slr-camera-icon-150x150.png in Resources */,
 				3CD66E831A7F42EA00D3E72E /* Images.xcassets in Resources */,
 				84C146951A81BD6800CC4EE9 /* imageGalleryIcon.png in Resources */,

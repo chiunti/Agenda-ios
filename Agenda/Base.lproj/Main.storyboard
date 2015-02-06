@@ -473,7 +473,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Editar / Eliminar Agenda" id="feS-9n-THx">
-                                        <barButtonItem key="leftBarButtonItem" id="Cok-Zj-8wX">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="Cok-Zj-8wX">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OEw-Dp-P4j">
                                                 <rect key="frame" x="-23" y="-15" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -553,9 +553,9 @@
         <image name="imageGalleryIcon.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9d5-eu-0ed"/>
         <segue reference="8Sl-LZ-T81"/>
         <segue reference="ZHd-Me-kpN"/>
-        <segue reference="k1R-uf-Xta"/>
+        <segue reference="myT-PD-nIW"/>
+        <segue reference="9d5-eu-0ed"/>
     </inferredMetricsTieBreakers>
 </document>

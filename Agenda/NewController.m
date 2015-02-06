@@ -10,12 +10,16 @@
 #import "Defaults.h"
 #import "DBManager.h"
 
+UIAlertView *alertError, *alertGuardar;
+
 @implementation NewController
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    //self.navNew.title = currentState==Insert?@"Alta Usuario":@"Editar Usuario";
-    //[self.btnImage setTitle: (currentState==Insert? @"Foto":@"") forState:UIControlStateNormal];
+    [self initController];
+}
+-(void)initController
+{
     if (currentState==Insert) {
         // Nuevo registro
         self.navNew.title = @"Alta Usuario";
@@ -34,6 +38,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 
+    alertError = [[UIAlertView alloc] initWithTitle:@"Corregir"
+                                       message:@"Verifique que todos los campos tengan datos"
+                                      delegate:self
+                             cancelButtonTitle:@"Aceptar"
+                             otherButtonTitles:nil];
+    alertGuardar = [[UIAlertView alloc] initWithTitle:@"Datos guardados"
+                                            message:nil
+                                           delegate:self
+                                  cancelButtonTitle:nil
+                                  otherButtonTitles:nil];
 
 }
 
@@ -61,6 +75,11 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    CGImageRef cgref = [currentRecord[RECORD_IMAGE] CGImage];
+    CIImage    *cim  = [currentRecord[RECORD_IMAGE] CIImage];
+    if ( !( cim==nil&&cgref==NULL) ) {
+         [self.btnImage setTitle: @"" forState:UIControlStateNormal];
+    }
     self.imgPhoto.image = currentRecord[RECORD_IMAGE];
     self.txtName.text   = currentRecord[RECORD_NAME];
     self.txtStatus.text = currentRecord[RECORD_STATUS];
@@ -68,6 +87,49 @@
 }
 
 - (IBAction)bntSavePressed:(id)sender {
+    BOOL showAlert = false;
+    CGImageRef cgref = [currentRecord[RECORD_IMAGE] CGImage];
+    CIImage    *cim  = [currentRecord[RECORD_IMAGE] CIImage];
+
+    showAlert = (showAlert|| [self.txtName.text length]==0 );
+    showAlert = (showAlert|| [self.txtStatus.text length]==0 );
+    showAlert = (showAlert|| [self.txtSong.text length]==0 );
+    
+    if (cim==nil&&cgref==NULL) {
+        self.btnImage.layer.borderColor = [[UIColor redColor] CGColor];
+        showAlert = true;
+    } else {
+        self.btnImage.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    }
+    
+    if ([self.txtName.text length]==0) {
+        showAlert = true;
+        self.txtName.layer.borderWidth = 1;
+        self.txtName.layer.borderColor = [[UIColor redColor] CGColor];
+    } else {
+        self.txtName.layer.borderWidth = 0;
+    }
+    if ([self.txtStatus.text length]==0) {
+        showAlert = true;
+        self.txtStatus.layer.borderWidth = 1;
+        self.txtStatus.layer.borderColor = [[UIColor redColor] CGColor];
+    } else {
+        self.txtStatus.layer.borderWidth = 0;
+    }
+    if ([self.txtSong.text length]==0) {
+        showAlert = true;
+        self.txtSong.layer.borderWidth = 1;
+        self.txtSong.layer.borderColor = [[UIColor redColor] CGColor];
+    } else {
+        self.txtSong.layer.borderWidth = 0;
+    }
+    
+    
+    if (showAlert) {
+        [alertError show];
+        return;
+    }
+    
     
     if (currentState == Insert) {
         [[DBManager getSharedInstance]
@@ -97,5 +159,12 @@
     
 
     [self dismissViewControllerAnimated:YES completion:nil];
+    [alertGuardar show];
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(dismissAlert) userInfo:nil repeats:false];
+}
+
+-(void)dismissAlert
+{
+    [alertGuardar dismissWithClickedButtonIndex:0 animated:YES];
 }
 @end

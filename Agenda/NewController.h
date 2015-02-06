@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewController : UIViewController<UITextFieldDelegate>
+@interface NewController : UIViewController<UITextFieldDelegate,UIAlertViewDelegate>
 //Navigator
 @property (strong, nonatomic) IBOutlet UINavigationItem *navNew;
 //ScrollView

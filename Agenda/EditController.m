@@ -12,6 +12,7 @@
 #import "Defaults.h"
 
 NSMutableArray *maUsers;
+UIAlertView *alert;
 
 @implementation EditController
 
@@ -22,16 +23,23 @@ NSMutableArray *maUsers;
 
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self refreshData];
+}
+
 - (void)initController{
-    maUsers = [[NSMutableArray alloc] init];
-    [[DBManager getSharedInstance] executeQueryWithString:@"select id, photo, name, status, song from users"];
-    maUsers = [[DBManager getSharedInstance]getResultArray];
-    
-    self.btnEliminar.hidden = (currentState != Delete);
-    self.btnEditar.hidden   = (currentState != Edit);
     self.navEdit.title = currentState==Delete? @"Eliminar contacto":@"Editar contacto";
 }
 
+-(void)refreshData
+{
+    maUsers = [[NSMutableArray alloc] init];
+    [[DBManager getSharedInstance] executeQueryWithString:@"select id, photo, name, status, song from users"];
+    maUsers = [[DBManager getSharedInstance]getResultArray];
+    [self.tblEdit reloadData];
+
+}
 /**********************************************************************************************
  Table Functions
  **********************************************************************************************/
@@ -53,10 +61,11 @@ NSMutableArray *maUsers;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"cellShow";
+    static NSString *CellIdentifier = @"cellEdit";
     CustomizedTableViewCell *cell = (CustomizedTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil){
         cell = [[CustomizedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
     }
     
     NSMutableArray *record = maUsers[indexPath.row];
@@ -70,30 +79,45 @@ NSMutableArray *maUsers;
 //-------------------------------------------------------------------------------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.btnMore.enabled = true;
-    self.btnShare.enabled = true;
-    
     [[DBManager getSharedInstance]
      executeQueryWithString:@"select id, photo, name, status, song from users where id=?"
      andParams:[[NSMutableArray alloc]
-                //                initWithObjects:[[NSNumber alloc] initWithInteger: ] ,
-                //                nil]];
                 initWithObjects:maUsers[indexPath.row][RECORD_ID], nil]];
     currentRecord = [[DBManager getSharedInstance]getResultArray][0];
     currentRecord[RECORD_IMAGE] = [UIImage imageWithData:currentRecord[RECORD_IMAGE]];
     
+    if (currentState==Edit) {
+        [self performSegueWithIdentifier:@"ListToEdit" sender:self];
+    } else {
+        
+        alert = [[UIAlertView alloc] initWithTitle:@"Eliminar"
+                                           message:[NSString stringWithFormat:@"¿Desea eliminar a %@", currentRecord[RECORD_NAME]]
+                                          delegate:self
+                                 cancelButtonTitle:@"Cancelar"
+                                 otherButtonTitles:@"Eliminar", nil];
+        [alert show];
+    }
     
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.btnMore.enabled = false;
-    self.btnShare.enabled = false;
     
 }
-
-
-
-- (IBAction)btnEliminarPressed:(id)sender {
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 1) {
+        // do something here...
+        
+        if ([[DBManager getSharedInstance]
+         executeQueryWithString:@"delete from users where id=?"
+         andParams:[[NSMutableArray alloc]
+                    initWithObjects:currentRecord[RECORD_ID], nil]]) {
+             [self refreshData];
+         }
+        
+    }
 }
+
+
 @end
